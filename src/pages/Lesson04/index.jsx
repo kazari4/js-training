@@ -5,8 +5,8 @@ import instruction from "./instruction.md?raw";
 
 const convertData = (input) => {
   // 分割代入を上手く使おう
-  const speciesSet = Array.from(new Set(input.map(({ species }) => species)));
-  return speciesSet.map((species) => {
+  const species = Array.from(new Set(input.map(({ species }) => species)));
+  return species.map((species) => {
     return {
       id: species,
       data: input // mapとかfilterは連鎖させられる
