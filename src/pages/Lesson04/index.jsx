@@ -4,7 +4,16 @@ import Chart from "../../components/Chart04";
 import instruction from "./instruction.md?raw";
 
 const convertData = (input) => {
-  return []; // ここを作りましょう！
+  // 分割代入を上手く使おう
+  const speciesSet = Array.from(new Set(input.map(({ species }) => species)));
+  return speciesSet.map((species) => {
+    return {
+      id: species,
+      data: input // mapとかfilterは連鎖させられる
+        .filter((item) => item.species === species)
+        .map(({ sepalLength: x, petalWidth: y }) => ({ x, y }))
+    }
+  });
 };
 
 const Lesson = () => {
