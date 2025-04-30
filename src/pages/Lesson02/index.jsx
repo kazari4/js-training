@@ -4,9 +4,8 @@ import Chart from "../../components/Chart02";
 import instruction from "./instruction.md?raw";
 
 const convertData = (input) => {
-  input.sort((a, b) => {
-    return b.count - a.count;
-  })
+  // アロー関数内が式1つの時はreturnを省略可
+  input.sort((a, b) => b.count - a.count);
   return input.slice(0, 20)
 };
 
